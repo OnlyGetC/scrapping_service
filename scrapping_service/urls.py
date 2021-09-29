@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views import main
+from scraping.views import main_view
 ##from .views import contacts
 ##from .views import cupons
 ##from .views import faq
@@ -27,7 +27,7 @@ from .views import main
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('main/', main),
+    path('main/', main_view),
    ## path('contacts/', contacts),
    ## path('cupons/', cupons),
   ##  path('faq/', faq),

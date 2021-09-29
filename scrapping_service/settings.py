@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'scraping' # здесь надо вставлять название приложения чтобы его инициализировать(но это делают после команды manage.py startapp название приложения)
 ]
 
 MIDDLEWARE = [
