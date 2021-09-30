@@ -15,25 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from scraping.views import main_view
-##from .views import contacts
-##from .views import cupons
-##from .views import faq
-##from .views import indraw
-##from .views import my_cupons
-##from .views import news
-##from .views import profile
-##from .views import withdraw
+from scraping.views import main_view,contact_view,cupons_view,faq_view,indraw_view,my_cupons_view,news_view,profile_view,withdraw_view
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('main/', main_view),
-   ## path('contacts/', contacts),
-   ## path('cupons/', cupons),
-  ##  path('faq/', faq),
-   ## path('indraw/', indraw),
-  ##  path('my_cupons/', my_cupons),
-   ## path('news/', news),
-  ##  path('profile/', profile),
-  ##  path('withdraw/', withdraw),
+    path('contacts/', contact_view),
+    path('cupons/', cupons_view),
+    path('faq/', faq_view),
+    path('indraw/', indraw_view),
+    path('my_cupons/', my_cupons_view),
+    path('news/', news_view),
+    path('profile/', profile_view),
+    path('withdraw/', withdraw_view),
 ]

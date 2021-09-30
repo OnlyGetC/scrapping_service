@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Main</title>
-</head>
-<body>
-
-<p>Today {{object_list}}</p>
-</body>
-</html>
+{% extends "header.html" %}
+{% block content %}
+<! -- Ниже выводится заголовок содержащийся в вопросах!!!  -->
+{% for obj in object_list%}
+{{obj.quesion_title}}
+<p>{{obj.description}}</p>
+<p>{{obj.answer}}</p>
+{% endfor %}
+{% endblock %}

@@ -1,13 +1,13 @@
 from django.db import models
 
 
-class Cuponi(models.Model):
+class Cuponi(models.Model): #не работает как надо
     cupon_name = models.CharField(max_length=50, verbose_name='Название купона', unique=True)
     slug = models.CharField(max_length=50, blank = True, unique=True)#blank говорит о том что поле может быть пустым, unique говорит о том что поле уникальное
 
     class Meta:
         verbose_name = 'Название купона'
-        verbose_name_plural = 'Название купонов'
+        verbose_name_plural = 'Купоны'
 
     def __str__(self):
         return self.cupon_name
@@ -37,3 +37,26 @@ class news(models.Model):
     def __str__(self):
         return self.news_title
 
+class contacts(models.Model):
+    version_contact= models.CharField(max_length=100, verbose_name='Версия контактов', unique=True)
+    contact_text = models.TextField(verbose_name='Текст контакты')
+
+    class Meta:
+        verbose_name = 'Контакт'
+        verbose_name_plural = 'Контакты'
+
+    def __str__(self):
+        return self.version_contact
+
+class ticket(models.Model):
+    ticket_name= models.CharField(max_length=100, verbose_name='Номер купона/билета', unique=True)
+    ticket_description = models.TextField(verbose_name='Описание купона/билета')
+    ticket_price = models.CharField(max_length=100, verbose_name='Цена купона/билета', unique=True)
+    ticket_kolichestvo = models.CharField(max_length=100, verbose_name='Количество купонов/билетов', unique=True)
+
+    class Meta:
+        verbose_name = 'Купон/билет'
+        verbose_name_plural = 'Купоны/билеты'
+
+    def __str__(self):
+        return self.ticket_name
