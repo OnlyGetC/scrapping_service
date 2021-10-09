@@ -3,7 +3,7 @@ from django.contrib.auth.models import UserManager
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
 
 class MyUserManager(BaseUserManager):
-    def create_user(self, email, date_of_birth, password=None):
+    def create_user(self, email, password=None):
         """
         Creates and saves a User with the given email, date of
         birth and password.
@@ -12,23 +12,22 @@ class MyUserManager(BaseUserManager):
             raise ValueError('Пользователь должен иметь email адрес')
 
         user = self.model(
-            email=self.normalize_email(email),
-            date_of_birth=date_of_birth,# надо удалить, и добавить свое наверное
+            email=self.normalize_email(email)
+
         )
 
         user.set_password(password)
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, email, date_of_birth, password=None):
+    def create_superuser(self, email, password=None):
         """
         Creates and saves a superuser with the given email, date of
         birth and password.
         """
         user = self.create_user(
             email,
-            password=password,
-            date_of_birth=date_of_birth,# надо удалить, и добавить свое наверное
+            password=password
         )
         user.is_admin = True
         user.save(using=self._db)
@@ -39,19 +38,21 @@ class MyUser(AbstractBaseUser):
         verbose_name='email address',
         max_length=255,
         unique=True,
-        blank=True,
+
     )
 
-    telephone_number = models.CharField(
-        verbose_name='Номер телефона',
-        max_length = 20,
-        unique=True,
-        blank=True,
-    )
-    date_of_birth = models.DateField()
+   # telephone_number = models.CharField(
+    #    verbose_name='Номер телефона',
+    #    max_length = 20,
+    #    unique=True,
+    #    blank=True,
+    #    null=True,
+    #)
+
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
     send_email = models.BooleanField(default=True)
+
     objects = MyUserManager()
 
     USERNAME_FIELD = 'email'
