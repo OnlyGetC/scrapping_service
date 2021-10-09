@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'scraping' # здесь надо вставлять название приложения чтобы его инициализировать(но это делают после команды manage.py startapp название приложения)
+    'scraping',
+    'accounts',# здесь надо вставлять название приложения чтобы его инициализировать(но это делают после команды manage.py startapp название приложения)
 ]
 
 MIDDLEWARE = [
@@ -119,3 +120,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+AUTH_USER_MODEL = 'accounts.MyUser'
