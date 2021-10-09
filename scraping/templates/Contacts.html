@@ -1,9 +1,13 @@
 {% extends "header.html" %}
 {% block content %}
-<! -- Ниже выводится заголовок содержащийся в вопросах!!!  -->
-
-
-<p>Контакты</p>
-
-
+ <div class="col-md-auto">
+<H1>Контакты</H1>
+ </div>
+{% for obj in contact_list%}
+<div class="card my-4">
+    <div class="card-body">
+        <p class="card-text"> {{obj.contact_text}}</p>
+    </div>
+</div>
+{% endfor %}
 {% endblock %}

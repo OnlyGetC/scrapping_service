@@ -1,8 +1,12 @@
 {% extends "header.html" %}
 {% block content %}
-<! -- Ниже выводится заголовок содержащийся в вопросах!!!  -->
-
-
-<p>Вопросы</p>
-
+{% for obj in object_list%}
+<div class="card my-4">
+    <h5 class = "card-header">{{obj.question_title}}</h5>
+    <div class="card-body">
+        <h5 class="card-title">{{obj.description}}</h5>
+        <p class="card-text"> {{obj.answer}}</p>
+    </div>
+</div>
+{% endfor %}
 {% endblock %}
